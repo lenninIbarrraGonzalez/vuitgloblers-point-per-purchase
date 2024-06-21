@@ -1,3 +1,4 @@
-const PointsappInfo  = () => <h1>puntos a ganar</h1>
+
+import PointsappInfo from "./components/PointsappInfo";
 
 export default PointsappInfo
