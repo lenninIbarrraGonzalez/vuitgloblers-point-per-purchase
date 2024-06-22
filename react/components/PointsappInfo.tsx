@@ -13,22 +13,17 @@ const PointsappInfo = ({basePoint, quantityPoint}: Props) =>  {
   let sellingPrice =  productContextValue.product.priceRange.sellingPrice.highPrice
   sellingPrice = parseInt(sellingPrice, 10);
 
-  console.log(basePoint,quantityPoint);
-
-  // let basePoint = parseInt("500",10)
-  // let quantityPoint = parseInt("2",10)
-
   let numberPoint = Math.floor((sellingPrice/basePoint))
   numberPoint = numberPoint * quantityPoint
 
-  return <>
-  {/* <pre>{JSON.stringify(productContextValue, null, 4)}</pre> */}
-  {/* <pre>Te puedes ganar {numberPoint} puntos con esta compra</pre> */}
-  <pre>Te puedes ganar {numberPoint} puntos con esta compra</pre>
-  <p>{basePoint}</p>
-  <p>{quantityPoint}</p>
-  </>
+  return (
+          <div>
+            {(numberPoint > 0)
+            ? <pre>Te puedes ganar {numberPoint} puntos con esta compra</pre>
+            : <pre></pre>}
 
+          </div>
+  )
 }
 
 PointsappInfo.propTypes = {
@@ -41,4 +36,24 @@ PointsappInfo.defaultProps = {
   quantityPoint: 1
 
 }
+
+PointsappInfo.schema = {
+  title: "Información puntos a ganar por compra",
+  type: "object",
+  properties: {
+    basePoint: {
+      title:"base",
+      description: "Esta es la base en pesos por la que se otorgara puntos",
+      type:"number"
+    },
+    quantityPoint: {
+      title:"numero de puntos",
+      description: "Puntos que se otorgaran por el resultado de la compra sobre la base",
+      type:"number"
+    },
+  }
+
+}
+
+
 export default PointsappInfo
