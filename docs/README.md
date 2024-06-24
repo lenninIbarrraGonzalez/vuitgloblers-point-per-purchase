@@ -10,7 +10,8 @@
 
 With this component you can view the result of the points assigned for the purchase of a product. This component is used in the `product-summary.shelf` and `store.product` blocks
 
-
+![Alt text](PointsappInfo-component-page-product.png)
+![Alt text](PointsappInfo-component-shelf.png)
 
 ## Configuration
 
@@ -58,12 +59,13 @@ For the product page add the component in `store.product` in this because we add
 
   "points-per-purchase": {
     "props": {
-      "basePoint": 300,
-      "quantityPoint": 2
+      "basePoint": 500,
+      "quantityPoint": 1
     }
   },
 ```
 To include it in a shelf add the component in `product-summary.shelf` in this case we add it next to the product name as in the example.
+
 ```json
   {
   "product-summary.shelf": {
@@ -82,11 +84,18 @@ To include it in a shelf add the component in `product-summary.shelf` in this ca
   },
   "points-per-purchase": {
     "props": {
-      "basePoint": 300,
-      "quantityPoint": 2
+      "basePoint": 500,
+      "quantityPoint": 1
     }
   },
 ```
+### setting variables from the site editor
+
+The values ​​of the purchase base and the number of points are configurable from the site editor
+
+![Alt text](site-editor-page-product.png)
+![Alt text](site-editor-shelf.png)
+
 
 ### `third-price-component` props
 
@@ -94,15 +103,6 @@ To include it in a shelf add the component in `product-summary.shelf` in this ca
 | ------------------ | --------| ---------------------------------------------------------------------| ------------- |
 | `basePoint`        | `number`| This is the basis in pesos for which points will be awarded.         |     500       |
 | `quantityPoint`    | `number`| Points that will be awarded for the result of the purchase based on  |       1       |
-
-
-## Customization
-
-In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
-
-| CSS Handles   |
-| ------------- |
-
 
 <!-- DOCS-IGNORE:start -->
 
