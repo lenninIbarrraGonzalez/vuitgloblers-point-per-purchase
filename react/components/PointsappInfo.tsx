@@ -1,6 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useProduct } from "vtex.product-context"
+import { useCssHandles } from 'vtex.css-handles'
+
+const CSS_HANDLES = ['container'] as const
 
 type Props = {
   basePoint : number,
@@ -10,15 +13,16 @@ type Props = {
 
 const PointsappInfo = ({basePoint, quantityPoint}: Props) =>  {
   const productContextValue = useProduct();
-  console.log("productContextValue",productContextValue);
+  const handles = useCssHandles(CSS_HANDLES);
+  // console.log("productContextValue",productContextValue);
 
-  let sellingPrice =  productContextValue.selectedItem.sellers[0].commertialOffer.Price
+  let sellingPrice =  productContextValue?.selectedItem?.sellers[0]?.commertialOffer?.Price
 
   sellingPrice = parseInt(sellingPrice, 10);
 
-  console.log("basePoint", basePoint);
-  console.log("quantityPoint", quantityPoint);
-  console.log("sellingPrice",sellingPrice);
+  // console.log("basePoint", basePoint);
+  // console.log("quantityPoint", quantityPoint);
+  // console.log("sellingPrice",sellingPrice);
 
 
 
@@ -26,10 +30,10 @@ const PointsappInfo = ({basePoint, quantityPoint}: Props) =>  {
   numberPoint = numberPoint * quantityPoint
 
   return (
-          <div>
+          <div className={`${handles.container} flex`}>
             {(numberPoint > 0)
-            ? <pre>Te puedes ganar {numberPoint} puntos con esta compra</pre>
-            : <pre>Por productos superiores a {basePoint} gana puntos</pre>}
+            ? <p>Te puedes ganar <span className="fw6">{numberPoint}</span>  puntos con esta compra</p>
+            : <p>Por productos superiores a $ <span className="fw6">{basePoint}</span> gana puntos</p>}
           </div>
   )
 }
