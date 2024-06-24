@@ -10,8 +10,17 @@ type Props = {
 
 const PointsappInfo = ({basePoint, quantityPoint}: Props) =>  {
   const productContextValue = useProduct();
-  let sellingPrice =  productContextValue.product.priceRange.sellingPrice.highPrice
+  console.log("productContextValue",productContextValue);
+
+  let sellingPrice =  productContextValue.selectedItem.sellers[0].commertialOffer.Price
+
   sellingPrice = parseInt(sellingPrice, 10);
+
+  console.log("basePoint", basePoint);
+  console.log("quantityPoint", quantityPoint);
+  console.log("sellingPrice",sellingPrice);
+
+
 
   let numberPoint = Math.floor((sellingPrice/basePoint))
   numberPoint = numberPoint * quantityPoint
@@ -20,8 +29,7 @@ const PointsappInfo = ({basePoint, quantityPoint}: Props) =>  {
           <div>
             {(numberPoint > 0)
             ? <pre>Te puedes ganar {numberPoint} puntos con esta compra</pre>
-            : <pre></pre>}
-
+            : <pre>Por productos superiores a {basePoint} gana puntos</pre>}
           </div>
   )
 }
