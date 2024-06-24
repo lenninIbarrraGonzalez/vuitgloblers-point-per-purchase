@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useProduct } from "vtex.product-context"
 import { useCssHandles } from 'vtex.css-handles'
+import { FormattedPrice } from 'vtex.formatted-price'
 
 const CSS_HANDLES = ['container'] as const
 
@@ -30,10 +31,10 @@ const PointsappInfo = ({basePoint, quantityPoint}: Props) =>  {
   numberPoint = numberPoint * quantityPoint
 
   return (
-          <div className={`${handles.container} flex`}>
+          <div className={`${handles.container} flex `  }>
             {(numberPoint > 0)
-            ? <p>Te puedes ganar <span className="fw6">{numberPoint}</span>  puntos con esta compra</p>
-            : <p>Por productos superiores a $ <span className="fw6">{basePoint}</span> gana puntos</p>}
+            ? <span >Te puedes ganar <span className="fw6">{numberPoint}</span>  puntos con esta compra</span>
+            : <span >Gana puntos con productos superiores a <FormattedPrice value={basePoint}/> </span>}
           </div>
   )
 }
