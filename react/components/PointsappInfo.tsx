@@ -28,6 +28,10 @@ const PointsappInfo = ({ basePoint, quantityPoint }: Props) => {
   let numberPoint = Math.floor((sellingPrice / basePoint))
   numberPoint = numberPoint * quantityPoint
 
+  if(basePoint <= 0 || quantityPoint <= 0) {
+    return null
+  }
+
   return (
     <div className={`${handles.container} flex `}>
       {numberPoint > 0 ? (
@@ -58,12 +62,12 @@ PointsappInfo.schema = {
   properties: {
     basePoint: {
       title: 'base',
-      description: 'Esta es la base en pesos por la que se otorgará puntos',
+      description: 'Esta es la base en pesos por la que se otorgará puntos (acepta valores positivos, debe ser mayor a 1)',
       type: 'number'
     },
     quantityPoint: {
       title: 'numero de puntos',
-      description: 'Puntos que se otorgarán por el resultado de la compra sobre la base',
+      description: 'Puntos que se otorgarán por el resultado de la compra sobre la base (acepta valores positivos, debe ser mayor a 1)',
       type: 'number'
     },
   }
