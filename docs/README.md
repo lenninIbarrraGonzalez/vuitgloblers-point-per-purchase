@@ -23,7 +23,7 @@ In your theme's manifest.json, add the Third Price Component app as a dependency
 
 ```json
 "dependencies": {
-  "vtex.points-per-purchase": "0.x"
+  "itglobers.points-per-purchase": "0.x"
 }
 ```
 
@@ -64,6 +64,7 @@ For the product page add the component in `store.product` in this because we add
     }
   },
 ```
+
 To include it in a shelf add the component in `product-summary.shelf` in this case we add it next to the product name as in the example.
 
 ```json
@@ -89,6 +90,7 @@ To include it in a shelf add the component in `product-summary.shelf` in this ca
     }
   },
 ```
+
 ### setting variables from the site editor
 
 The values ​​of the purchase base and the number of points are configurable from the site editor
@@ -96,13 +98,12 @@ The values ​​of the purchase base and the number of points are configurable 
 ![Alt text](site-editor-page-product.png)
 ![Alt text](site-editor-shelf.png)
 
-
 ### `third-price-component` props
 
-| Prop name          | Type    | Description                                                          | Default value |
-| ------------------ | --------| ---------------------------------------------------------------------| ------------- |
-| `basePoint`        | `number`| This is the basis in pesos for which points will be awarded.         |     500       |
-| `quantityPoint`    | `number`| Points that will be awarded for the result of the purchase based on  |       1       |
+| Prop name       | Type     | Description                                                         | Default value |
+| --------------- | -------- | ------------------------------------------------------------------- | ------------- |
+| `basePoint`     | `number` | This is the basis in pesos for which points will be awarded.        | 500           |
+| `quantityPoint` | `number` | Points that will be awarded for the result of the purchase based on | 1             |
 
 <!-- DOCS-IGNORE:start -->
 
